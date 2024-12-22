@@ -22,7 +22,7 @@ const [loading, setLoading] = useState(true)
     signInWithPopup(auth, googleProvider)
   }
   
-  const createNewUser = (email, password) => {
+  const createUser = (email, password) => {
   return createUserWithEmailAndPassword(auth, email, password)
 }
 
@@ -54,7 +54,7 @@ const [loading, setLoading] = useState(true)
   const authInfo = {
     user,
     setUser,
-    createNewUser,
+    createUser,
     logOut,
     userLogin,
     loginWithGoogle,

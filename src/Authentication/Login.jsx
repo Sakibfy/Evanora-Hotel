@@ -33,7 +33,7 @@ const Login = () => {
     try {
       //User Login
       await userLogin(email, pass)
-      toast.success('Signin Successful')
+      toast.success('Login Successful')
       navigate(from, { replace: true })
     } catch (err) {
       console.log(err)
@@ -43,7 +43,7 @@ const Login = () => {
 
   return (
     <div className='flex justify-end items-center  my-5'>
-      <div className='flex h-[600px] w-8/12 mx-auto overflow-hidden bg-white rounded-lg shadow-lg  '>
+      <div className='flex h-[600px] md:w-8/12 w-10/12 mx-auto overflow-hidden bg-white rounded-lg shadow-lg  '>
       
 
         <div className='w-full h-full'
@@ -54,7 +54,7 @@ const Login = () => {
           backgroundRepeat: 'no-repeat'
           }}>
           
-          <div className='border backdrop-blur-3xl w-6/12 mx-auto mt-14 rounded-lg shadow-2xl'>
+          <div className='border backdrop-blur-3xl md:w-6/12 mx-auto mt-14 w-9/12 rounded-lg shadow-2xl'>
             <p className='mt-7 mb-10 text-5xl font-extrabold text-center text-white '>
            Login
           </p>
@@ -119,7 +119,7 @@ const Login = () => {
                 name='password'
                 placeholder='Password'
                 className=' w-full px-4 py-2 bg-transparent border rounded-3xl text-white border-white shadow-xl'
-                type='password'
+                
               />
             </div>
             <div className='flex justify-between w-10/12  mx-auto text-white my-4'>

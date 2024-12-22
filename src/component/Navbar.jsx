@@ -61,7 +61,7 @@ const Navbar = () => {
             {user && user?.email ?
               
             <div className="avatar">
-         <div className="ring-primary ring-offset-base-100 w-10 rounded-full ring ring-offset-2 mt-2">
+         <div className="ring-offset-base-100 w-10 rounded-xl ring ring-offset-2 mt-2">
                 <img src={user?.photoURL} />
                 <p>{ user.displayName}</p>
         </div>
