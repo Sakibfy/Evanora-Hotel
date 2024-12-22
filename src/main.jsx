@@ -1,21 +1,18 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 import './index.css'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { RouterProvider } from 'react-router-dom'
+import router from './Router'
 
+// import AuthProvider from './providers/AuthProvider'
+import { Toaster } from 'react-hot-toast'
+import AuthProvider from './provider/AuthProvider'
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <div>Hello world!</div>,
-  },
-]);
-
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-   <RouterProvider router={router} />
-  </StrictMode>,
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <AuthProvider>
+      <RouterProvider router={router} />
+      <Toaster position='top-right' reverseOrder={false} />
+      </AuthProvider>
+  </React.StrictMode>
 )
