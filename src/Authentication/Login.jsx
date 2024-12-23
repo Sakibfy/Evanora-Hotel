@@ -3,11 +3,11 @@ import toast from 'react-hot-toast'
 import background from '../assets/background.jpg'
 import { useContext } from 'react'
 import { AuthContext } from '../provider/AuthProvider'
+import axios from 'axios'
 const Login = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const from = location?.state || '/'
-  console.log(from)
   const { userLogin, githublogin, loginWithGoogle } = useContext(AuthContext)
 
   // Google Signin
@@ -40,12 +40,19 @@ const Login = () => {
     const form = e.target
     const email = form.email.value
     const pass = form.password.value
-    console.log({ email, pass })
+   
     try {
       //User Login
       await userLogin(email, pass)
       toast.success('Login Successful')
-      navigate(from, { replace: true })
+      const user = { email: email }
+      console.log(user.email);
+      axios.post('http://localhost:5000/jwt', user)
+        .then(res => {
+        console.log(res.data);
+      })
+      // navigate(from, { replace: true })
+      
     } catch (err) {
       console.log(err)
       toast.error(err?.message)
