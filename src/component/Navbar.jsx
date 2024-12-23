@@ -17,11 +17,7 @@ const Navbar = () => {
       <>
         <button className=" font-semibold text-[16px] text-gray-700 mr-3  hover:text-[#438c76]"><NavLink to="/My-Bookings">My Bookings</NavLink></button>
       </>
-    )
-      
-   }
-     
-  </>
+    )} </>
 
 
   return (
@@ -79,7 +75,8 @@ const Navbar = () => {
             :
             <div className="">
              <Link to={"/login"}><button className="px-5 py-3 font-bold bg-[#4ca98d] duration-500 hover:bg-[#438c76] text-white mr-3 text-[16px] border border-white rounded-tl-3xl outline-none">Login</button> </Link>
-            <Link to={"/register"}><button className="px-5 py-3 font-bold bg-[#4ca98d] duration-500 hover:bg-[#438c76] text-white text-[16px]  border border-white rounded-tl-3xl outline-none">Registar</button> </Link>
+            <Link to={"/register"}><button className="px-5 py-3 font-bold bg-[#4ca98d] duration-500 hover:bg-[#438c76] text-white text-[16px]  border border-white rounded-tl-3xl outline-none">Registar</button>
+             </Link>
           </div>
         }
     

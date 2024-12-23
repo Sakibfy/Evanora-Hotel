@@ -11,7 +11,7 @@ import { FaEyeSlash } from "react-icons/fa";
 const Register = () => {
   const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false)
-  const { loginWithGoogle, createUser, updateUserProfile, setUser } =
+  const { loginWithGoogle, githublogin,createUser, updateUserProfile, setUser } =
     useContext(AuthContext)
 
   const handleSignUp = async e => {
@@ -62,10 +62,21 @@ const Register = () => {
       toast.error(err?.message)
     }
   }
+  // Github Registation
+  const handleGithubRegister = async () => {
+    try {
+      await githublogin()
+      toast.success('Github Registation Successful')
+      navigate('/')
+    } catch (err) {
+      console.log(err)
+      toast.error(err?.message)
+    }
+  }
 
   return (
     <div className='flex justify-end items-center  my-5'>
-          <div className='flex h-[600px] w-10/12 md:w-8/12 mx-auto overflow-hidden bg-white rounded-lg shadow-lg  '>
+          <div className='flex h-[630px] w-10/12 md:w-8/12 mx-auto overflow-hidden bg-white rounded-lg shadow-lg  '>
           
     
             <div className='w-full h-full'
@@ -105,12 +116,11 @@ const Register = () => {
                     />
                   </svg>
                 </div>
-    
                 <span className='  px-4 py-3 font-bold text-center'>
                   Registration with Google
-                </span>
+              </span>
               </div>
-    
+              <div className='flex  justify-center'><button onClick={handleGithubRegister} className='text-white font-bold border mt-1 p-1 rounded-lg'>Github</button></div>
               <div className='flex items-center justify-between mt-4'>
                 <span className='w-1/5 border-b  lg:w-1/4'></span>
     

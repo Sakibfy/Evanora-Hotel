@@ -8,14 +8,14 @@ const Login = () => {
   const location = useLocation()
   const from = location?.state || '/'
   console.log(from)
-  const { userLogin, loginWithGoogle } = useContext(AuthContext)
+  const { userLogin, githublogin, loginWithGoogle } = useContext(AuthContext)
 
   // Google Signin
   const handleGoogleSignIn = async () => {
     try {
       await loginWithGoogle()
 
-      toast.success('Signin Successful')
+      toast.success('Login Successful')
       navigate(from, { replace: true })
     } catch (err) {
       console.log(err)
@@ -23,6 +23,17 @@ const Login = () => {
     }
   }
 
+  // Github Registation
+  const handleGithubLogin = async () => {
+    try {
+      await githublogin()
+      toast.success('Github Registation Successful')
+      navigate('/')
+    } catch (err) {
+      console.log(err)
+      toast.error(err?.message)
+    }
+  }
   // Email Password Signin
   const handleSignIn = async e => {
     e.preventDefault()
@@ -43,7 +54,7 @@ const Login = () => {
 
   return (
     <div className='flex justify-end items-center  my-5'>
-      <div className='flex h-[600px] md:w-8/12 w-10/12 mx-auto overflow-hidden bg-white rounded-lg shadow-lg  '>
+      <div className='flex h-[630px] md:w-8/12 w-10/12 mx-auto overflow-hidden bg-white rounded-lg shadow-lg  '>
       
 
         <div className='w-full h-full'
@@ -61,7 +72,7 @@ const Login = () => {
 
           <div
             onClick={handleGoogleSignIn}
-            className=' text-white w-10/12 mx-auto flex cursor-pointer items-center justify-center mt-4  transition-colors duration-300 transform border rounded-2xl   hover:bg-slate-300 '
+            className=' text-white w-10/12 mx-auto flex cursor-pointer items-center justify-center mt-4  transition-colors duration-300 transform border rounded-2xl   '
           >
             <div className='py-2 '>
               <svg className='w-6 h-6' viewBox='0 0 40 40'>
@@ -85,10 +96,10 @@ const Login = () => {
             </div>
 
             <span className='  px-4 py-3 font-bold text-center'>
-              Sign in with Google
-            </span>
+              Login in with Google 
+              </span>
           </div>
-
+           <div className='flex  justify-center'><button onClick={handleGithubLogin} className='text-white font-bold border mt-1 p-1 rounded-lg'>Github</button></div>
           <div className='flex items-center justify-between mt-4'>
             <span className='w-1/5 border-b  lg:w-1/4'></span>
 
