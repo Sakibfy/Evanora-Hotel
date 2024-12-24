@@ -7,8 +7,6 @@ const FeaturedRooms = () => {
   
   const sliceRooms = rooms.slice(0, 6);
  
-  const {_id} =rooms
- console.log(rooms);
   useEffect(() => {
     // Fetch top-rated rooms from the backend
     axios
@@ -39,7 +37,7 @@ const FeaturedRooms = () => {
             <div className="p-4">
               <h3 className="text-xl font-semibold">{room.name}</h3>
               <p className="text-gray-600 mb-4">{room.description}</p>
-              <Link to={`/roomdetails/${_id}`}>
+              <Link to={`/roomdetails/${room._id}`}>
               <button
                 className="bg-[#4ca98d] duration-500 hover:bg-[#438c76]  text-white py-2 px-4 rounded "
       

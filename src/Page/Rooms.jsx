@@ -1,5 +1,5 @@
 import  { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Rooms = () => {
@@ -38,12 +38,10 @@ const Rooms = () => {
             <div className="p-4">
               <h3 className="text-xl font-semibold">{room.name}</h3>
               <p className="text-gray-600 mb-4">{room.description}</p>
-              <button
-                className=" py-2 px-4 rounded bg-[#4ca98d] duration-500 hover:bg-[#438c76] text-white"
-                onClick={() => navigate(`/rooms/${room._id}`)}
-              >
-                Book Now
-              </button>
+              <Link to={`/roomdetails/${room._id}`}>
+            <button
+           className="bg-[#4ca98d] duration-500 hover:bg-[#438c76]  text-white py-2 px-4 rounded "> Book Now
+           </button></Link>
             </div>
           </div>
         ))}
