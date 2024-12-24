@@ -47,11 +47,13 @@ const Login = () => {
       toast.success('Login Successful')
       const user = { email: email }
       console.log(user.email);
-      axios.post('http://localhost:5000/jwt', user)
+      axios.post('http://localhost:3000/jwt', user, {
+        withCredentials: true
+      })
         .then(res => {
         console.log(res.data);
       })
-      // navigate(from, { replace: true })
+      navigate(from, { replace: true })
       
     } catch (err) {
       console.log(err)

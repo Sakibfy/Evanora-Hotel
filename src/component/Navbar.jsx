@@ -10,7 +10,7 @@ const Navbar = () => {
  const { user, logOut } = useContext(AuthContext);
 
   const link = <>
-     <button className=" font-semibold text-[18px] text-gray-700 mr-3  hover:text-[#438c76] "><NavLink to="/Rooms">Rooms</NavLink></button>
+     <button className=" font-semibold text-[18px] text-gray-700 mr-3  hover:text-[#438c76] "><NavLink to="/rooms">Rooms</NavLink></button>
      
      
     {user && (
@@ -57,7 +57,7 @@ const Navbar = () => {
             {user && user?.email ?
               
             <div className="avatar">
-         <div className="ring-offset-base-100 w-10 rounded-xl ring ring-offset-2 mt-2">
+         <div className="ring-offset-base-100 w-10 rounded-full ring ring-offset-2 mt-2">
                 <img src={user?.photoURL} />
                 <p>{ user.displayName}</p>
         </div>
@@ -69,7 +69,7 @@ const Navbar = () => {
             {
           user && user?.email ?            
             <div className="flex items-center">
-              <button onClick={logOut} className="btn btn-ghost border-2 shadow-md border-[#004aad] text-red-400 text-[16px] rounded-md">Log-Out <CiLogout className="text-2xl font-bold text-red-400"></CiLogout></button>
+              <button onClick={logOut} className="btn btn-ghost border-2 shadow-md border-[#4ca98d] text-red-400 text-[16px] rounded-md">Log-Out <CiLogout className="text-2xl font-bold text-red-400"></CiLogout></button>
             
             </div>
             :
