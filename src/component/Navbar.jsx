@@ -15,7 +15,7 @@ const Navbar = () => {
      
     {user && (
       <>
-        <button className=" font-semibold text-[16px] text-gray-700 mr-3  hover:text-[#438c76]"><NavLink to="/My-Bookings">My Bookings</NavLink></button>
+        <button className=" font-semibold text-[16px] text-gray-700 mr-3  hover:text-[#438c76]"><NavLink to="/mybookings">My Bookings</NavLink></button>
       </>
     )} </>
 
