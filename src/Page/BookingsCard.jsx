@@ -4,8 +4,9 @@ import DatePicker from "react-datepicker";
 import Swal from "sweetalert2";
 
 
-const BookingsCard = ({ bookdata,setRooms,rooms }) => {
- const [newtDate, setNewDate] = useState(new Date())
+const BookingsCard = ({ bookdata,setRooms,allrooms }) => {
+  const [newtDate, setNewDate] = useState(new Date())
+  console.log(bookdata);
 const {name, image,description,price,startDate,_id} = bookdata
 
   const handleDelete = _id => {
@@ -33,7 +34,7 @@ const {name, image,description,price,startDate,_id} = bookdata
       text: "Your Booked Room has been deleted.",
       icon: "success"
           })
-          const remainingVisa = rooms.filter(visa => visa._id !== _id)
+          const remainingVisa = allrooms.filter(visa => visa._id !== _id)
           setRooms(remainingVisa);  
           
         }
