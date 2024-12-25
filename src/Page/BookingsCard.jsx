@@ -1,12 +1,15 @@
+
+import { useState } from "react";
+import DatePicker from "react-datepicker";
 import Swal from "sweetalert2";
 
 
-const BookingsCard = ({ data,setRooms,rooms }) => {
-  // console.log(data);
-const {name, image,description,price,startDate,_id} = data
+const BookingsCard = ({ bookdata,setRooms,rooms }) => {
+ const [newtDate, setNewDate] = useState(new Date())
+const {name, image,description,price,startDate,_id} = bookdata
 
   const handleDelete = _id => {
-     console.log(_id);
+     
     Swal.fire({
   title: "Are you sure?",
   text: "You won't be able to revert this!",
@@ -36,26 +39,70 @@ const {name, image,description,price,startDate,_id} = data
         }
     })
   }
-});
-
-    
- }
-   
+});  
+  } 
+ 
+   const hadleUpdatedate = async () => {
+    const updateData = { 
+      newtDate, 
+    };
+    //  console.log("update Confirmation Data:", updateData);
      
+     fetch(`http://localhost:3000/bookingroom/${_id}`,{
+       method: "PUT",
+       headers: {
+          'Content-Type': 'application/json',
+       },
+       body: JSON.stringify(updateData)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data, _id);
+        if (data.modifiedCount > 0) {
+      Swal.fire({
+      title: "Update!",
+      text: "Date update.",
+      icon: "success"
+          }) 
+        }
+    })
+  
+  }
   return (
-    <div className="border-2 p-2 rounded-lg duration-300 hover:scale-105">
+    <div className="border-2 p-2 rounded-lg ">
       <img
             src={image}
               alt={name}
-            className=" mx-auto rounded-md  object-cover my-2"
+            className="duration-300 hover:scale-105 mx-auto w-full rounded-md  object-cover my-2"
           />
-        <p className=" text-2xl font-bold">Name: {name}</p>
+      <div className="mt-3 p-3"> <p className=" text-2xl font-bold">Name: {name}</p>
         <p className="font-semibold text-[20px]">Price: ${price}</p>
-      <p>Description: {description}</p>
-      <p>Description: {startDate}</p>
-      <div className='text-right flex justify-end'>
-       <button onClick={()=> handleDelete (_id)} className=" py-2 px-3 border border-red-700 rounded-lg hover:bg-slate-300 duration-300 text-red-700 font-semibold ">Cancel</button>
-                </div>
+      <p className="text-[18px] font-semibold">Description: {description}</p>
+      <p className="text-[18px] font-semibold">Date: {startDate}</p></div>
+      <div className='text-right flex justify-end mt-5'>
+        <button onClick={()=>document.getElementById('my_modal_2').showModal()} className="px-5 py-3 font-bold bg-[#4ca98d] duration-500 hover:bg-[#438c76] text-white mr-5 text-[16px] border rounded-md border-white outline-none ">update Date</button>
+        <button onClick={() => handleDelete(_id)} className=" py-2 px-3 border  border-red-700 rounded-lg hover:bg-slate-300 duration-300 text-red-700 font-semibold ">Cancel</button>
+        
+      </div>
+
+<dialog id="my_modal_2" className="modal">
+  <div className="modal-box h-2/4 text-center ">
+          
+          <h2 className="text-[18px] font-bold "> New Date:
+            <DatePicker
+                 selected={newtDate}
+                onChange={(date) => setNewDate(date)}
+                dateFormat="MM/dd/yyyy"
+                className="mt-2 ml-5 bg-slate-200 text-black p-1 rounded-lg"
+                />
+          </h2>
+          <button
+          onClick={() => hadleUpdatedate(_id)}  className="px-5 mt-28 py-3 font-bold bg-[#4ca98d] duration-500 hover:bg-[#438c76] text-white mr-5 text-[16px] border rounded-md border-white outline-none ">update Date</button>
+  </div>
+  <form method="dialog" className="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
     </div>    
       
   );
