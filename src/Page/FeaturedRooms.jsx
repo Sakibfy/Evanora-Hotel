@@ -13,7 +13,7 @@ const FeaturedRooms = () => {
       .get("http://localhost:3000/rooms")
       .then((response) => {
         setRooms(response.data);
-        console.log(response.data);
+        
       })
       .catch((error) => {
         console.error("Error fetching featured rooms:", error);
@@ -27,7 +27,7 @@ const FeaturedRooms = () => {
         {sliceRooms.map((room) => (
           <div
             key={room._id}
-            className="room-card bg-white shadow-md rounded-lg overflow-hidden"
+            className="room-card hover:scale-105 duration-200 bg-white shadow-md rounded-lg overflow-hidden"
           >
             <img
               src={room.image}

@@ -11,7 +11,7 @@ import { FaEyeSlash } from "react-icons/fa";
 const Register = () => {
   const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false)
-  const { loginWithGoogle,user, githublogin,createUser, updateUserProfile, setUser } =
+  const { loginWithGoogle, githublogin,createUser, updateUserProfile, setUser } =
     useContext(AuthContext)
 
   const handleSignUp = async e => {
