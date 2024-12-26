@@ -4,7 +4,7 @@ import useAuth from "./useAuth";
 import { useNavigate } from "react-router-dom";
 
 export const axiosCoustom = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'https://evanora-hotel-server.vercel.app',
   withCredentials: true
 })
 

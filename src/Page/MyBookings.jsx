@@ -15,8 +15,7 @@ const MyBookings = () => {
   const axiosSecure = useCoustomAxios()
   useEffect(() => {
     
-    // axios.get(`http://localhost:3000/bookingroom?email=${user.email}`, { withCredentials: true })
-    //   .then(res => setRooms(res.data))
+    
 
     axiosSecure.get(`/bookingroom?email=${user.email}`)
       .then(res => setRooms(res.data));

@@ -25,7 +25,7 @@ const { _id, name, price, description, image, reviews } = detailsRoom
     };
     console.log("Booking Confirmation Data:", bookingData);
      try {
-      const response = await axios.post('http://localhost:3000/bookingroom', bookingData, {
+      const response = await axios.post('https://evanora-hotel-server.vercel.app/bookingroom', bookingData, {
         headers: {
           'Content-Type': 'application/json',
         },

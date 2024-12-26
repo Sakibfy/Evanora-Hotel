@@ -45,14 +45,14 @@ const [loading, setLoading] = useState(true)
      console.log('state', currentUser?.email);
      if (currentUser?.email) {
        const user = { email: currentUser.email }
-       axios.post('http://localhost:3000/jwt', user,
+       axios.post('https://evanora-hotel-server.vercel.app/jwt', user,
          { withCredentials: true })
          .then(res => {
            console.log('loging', res.data);
            setLoading(false);
          })
      } else {
-       axios.post('http://localhost:3000/logout', {}, {
+       axios.post('https://evanora-hotel-server.vercel.app/logout', {}, {
          withCredentials: true
        })
          .then(res => {
