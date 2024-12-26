@@ -10,6 +10,7 @@ import Register from "./Authentication/Register";
 import RoomDetails from "./Page/RoomDetails";
 
 
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -30,13 +31,14 @@ const router = createBrowserRouter([
           <PrivateRoute>
             <MyBookings></MyBookings>
           </PrivateRoute>,
-        loader: () => fetch('http://localhost:3000/bookingroom'),
+        
       },
       {
         path: '/roomdetails/:id',
         element:  <RoomDetails></RoomDetails>,
          loader: ({params}) => fetch(`http://localhost:3000/rooms/${params.id}`)
       },
+     
       {
         path: '/Login',
         element: <Login></Login>

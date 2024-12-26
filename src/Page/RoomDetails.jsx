@@ -17,7 +17,7 @@ const { _id, name, price, description, image, reviews } = detailsRoom
 
   const confirmBooking = async () => {
     const bookingData = {
-      id: _id, 
+     price,
       name,
       description, 
       image, 

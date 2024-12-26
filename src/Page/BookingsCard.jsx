@@ -4,13 +4,13 @@ import DatePicker from "react-datepicker";
 import Swal from "sweetalert2";
 
 
-const BookingsCard = ({ bookdata,setRooms,allrooms }) => {
-  const [newtDate, setNewDate] = useState(new Date())
+const BookingsCard = ({ bookdata, setDelete, deleterooms }) => {
+  
+  const [newtDate, setStartDate] = useState('')
   console.log(bookdata);
-const {name, image,description,price,startDate,_id} = bookdata
-
-  const handleDelete = _id => {
-     
+  const { name, image, description, price, startDate, _id } = bookdata
+ 
+  const handleDelete = _id => {   
     Swal.fire({
   title: "Are you sure?",
   text: "You won't be able to revert this!",
@@ -34,8 +34,8 @@ const {name, image,description,price,startDate,_id} = bookdata
       text: "Your Booked Room has been deleted.",
       icon: "success"
           })
-          const remainingVisa = allrooms.filter(visa => visa._id !== _id)
-          setRooms(remainingVisa);  
+          const remainingRoom = deleterooms.filter(roo => roo._id !== _id)
+          setDelete(remainingRoom);  
           
         }
     })
@@ -58,7 +58,7 @@ const {name, image,description,price,startDate,_id} = bookdata
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data, _id);
+        // console.log(data, _id);
         if (data.modifiedCount > 0) {
       Swal.fire({
       title: "Update!",
@@ -88,11 +88,10 @@ const {name, image,description,price,startDate,_id} = bookdata
 
 <dialog id="my_modal_2" className="modal">
   <div className="modal-box h-2/4 text-center ">
-          
-          <h2 className="text-[18px] font-bold "> New Date:
+    <h2 className="text-[18px] font-bold "> New Date:
             <DatePicker
-                 selected={newtDate}
-                onChange={(date) => setNewDate(date)}
+                selected={newtDate}
+                onChange={(date) => setStartDate(date)}
                 dateFormat="MM/dd/yyyy"
                 className="mt-2 ml-5 bg-slate-200 text-black p-1 rounded-lg"
                 />

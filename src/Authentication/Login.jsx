@@ -3,7 +3,7 @@ import toast from 'react-hot-toast'
 import background from '../assets/background.jpg'
 import { useContext } from 'react'
 import { AuthContext } from '../provider/AuthProvider'
-import axios from 'axios'
+
 const Login = () => {
   const navigate = useNavigate()
   const location = useLocation()
@@ -47,12 +47,6 @@ const Login = () => {
       toast.success('Login Successful')
       const user = { email: email }
       console.log(user.email);
-      axios.post('http://localhost:3000/jwt', user, {
-        withCredentials: true
-      })
-        .then(res => {
-        console.log(res.data);
-      })
       navigate(from, { replace: true })
       
     } catch (err) {
