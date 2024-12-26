@@ -1,22 +1,31 @@
-import { useState } from "react";
-
+import { useContext, useState } from "react";
 import BookingsCard from "./BookingsCard";
 import { useEffect } from "react";
-import axios from "axios";
+
+import { AuthContext } from "../provider/AuthProvider";
+import useCoustomAxios from "../component/useCoustomAxios";
 
 
 const MyBookings = () => {
+  const { user } = useContext(AuthContext);
   const [rooms, setRooms] = useState([]);
   const allbookingroom = rooms;
- console.log(allbookingroom);
   const [deleterooms, setDelete] = useState(allbookingroom);
-  // console.log('tytt',allrooms);
+  
+  const axiosSecure = useCoustomAxios()
   useEffect(() => {
     
-    axios.get('http://localhost:3000/bookingroom', {withCredentials: true})
-    .then(res => setRooms(res.data))
+    // axios.get(`http://localhost:3000/bookingroom?email=${user.email}`, { withCredentials: true })
+    //   .then(res => setRooms(res.data))
 
-  }, [])
+    axiosSecure.get(`/bookingroom?email=${user.email}`)
+      .then(res => setRooms(res.data));
+
+  }, [user.email]);
+
+
+
+
   return (
     <div>
       <h2 className="text-4xl pb-5 font-bold text-[#4ca98d] duration-500 hover:text-[#438c76]  text-center mb-6  items-center ">My Booked Room</h2>

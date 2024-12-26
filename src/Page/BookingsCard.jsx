@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 const BookingsCard = ({ bookdata, setDelete, deleterooms }) => {
   
   const [newtDate, setStartDate] = useState('')
-  console.log(bookdata);
+  
   const { name, image, description, price, startDate, _id } = bookdata
  
   const handleDelete = _id => {   
