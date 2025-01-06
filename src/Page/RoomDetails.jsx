@@ -29,7 +29,7 @@ const { _id, name, price, description, image,rating } = detailsRoom
     };
     console.log("Booking Confirmation Data:", bookingData);
      try {
-      const response = await axios.post('http://localhost:3000/bookingroom', bookingData, {
+      const response = await axios.post('https://evanora-hotel-server.vercel.app/bookingroom', bookingData, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -46,7 +46,7 @@ const { _id, name, price, description, image,rating } = detailsRoom
   }
   // review
    useEffect(() => {
-        fetch('http://localhost:3000/roomreviews')
+        fetch('https://evanora-hotel-server.vercel.app/roomreviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])

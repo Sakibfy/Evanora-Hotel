@@ -33,7 +33,7 @@ const MyBookings = () => {
 }).then((result) => {
   if (result.isConfirmed) {
     
-    fetch(`http://localhost:3000/bookingroom/${_id}`,{
+    fetch(`https://evanora-hotel-server.vercel.app/bookingroom/${_id}`,{
     method: "DELETE"
     })
       .then(res => res.json())

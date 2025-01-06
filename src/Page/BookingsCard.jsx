@@ -33,7 +33,7 @@ const formattedDate = new Date(startDate).toLocaleDateString("en-US", {
     };
     //  console.log("update Confirmation Data:", updateData);
      
-     fetch(`http://localhost:3000/bookingroom/${_id}`,{
+     fetch(`https://evanora-hotel-server.vercel.app/bookingroom/${_id}`,{
        method: "PUT",
        headers: {
           'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ const formattedDate = new Date(startDate).toLocaleDateString("en-US", {
     const reviewsData = {comment,  rating,userId };
     console.log( reviewsData);
      try {
-      const response = await axios.post('http://localhost:3000/roomreviews', reviewsData, {
+      const response = await axios.post('https://evanora-hotel-server.vercel.app/roomreviews', reviewsData, {
         headers: {
           'Content-Type': 'application/json',
         },
