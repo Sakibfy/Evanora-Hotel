@@ -5,10 +5,10 @@ import FeaturedRooms from "./FeaturedRooms";
 
 const Home = () => {
   return (
-    <div>
+    <div className="w-11/12 mx-auto">
       <Banner></Banner>
-    <div className="w-11/12 mx-auto"><FeaturedRooms></FeaturedRooms></div>
-    <div className="w-11/12 mx-auto"><Map></Map></div>
+    <div><FeaturedRooms></FeaturedRooms></div>
+    <div><Map></Map></div>
     </div>
   );
 };

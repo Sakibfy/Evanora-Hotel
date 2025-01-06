@@ -21,7 +21,7 @@ const Navbar = () => {
 
 
   return (
-    <div className='backdrop-blur-xl  mt-2 h-[7`0px] sticky z-50'>
+    <div className='backdrop-blur-3xl bg-white  '>
       <div className="navbar  ">
         <div className="navbar-start">    
     <div className="dropdown">

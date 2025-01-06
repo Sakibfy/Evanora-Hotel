@@ -42,7 +42,7 @@ const [loading, setLoading] = useState(true)
  useEffect(() => {
    const unsubscribe = onAuthStateChanged(auth,currentUser => {
      setUser(currentUser)
-     console.log('state', currentUser?.email);
+     
      if (currentUser?.email) {
        const user = { email: currentUser.email }
        axios.post('https://evanora-hotel-server.vercel.app/jwt', user,

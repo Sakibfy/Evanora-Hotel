@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
@@ -9,10 +9,12 @@ import toast from "react-hot-toast";
 
 const RoomDetails = () => {
 const detailsRoom = useLoaderData();
-const nevigate = useNavigate()
-const [startDate, setStartDate] = useState(new Date())
+  const nevigate = useNavigate()
+   const [reviews, setReviews] = useState([]);
+  const [startDate, setStartDate] = useState(new Date())
 
-const { _id, name, price, description, image, reviews } = detailsRoom
+
+const { _id, name, price, description, image,rating } = detailsRoom
 
 
   const confirmBooking = async () => {
@@ -22,10 +24,12 @@ const { _id, name, price, description, image, reviews } = detailsRoom
       description, 
       image, 
       startDate, 
+      rating,
+      reviews
     };
     console.log("Booking Confirmation Data:", bookingData);
      try {
-      const response = await axios.post('https://evanora-hotel-server.vercel.app/bookingroom', bookingData, {
+      const response = await axios.post('http://localhost:3000/bookingroom', bookingData, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -40,6 +44,14 @@ const { _id, name, price, description, image, reviews } = detailsRoom
       toast.error("Booking failed. Please try again!");
     }
   }
+  // review
+   useEffect(() => {
+        fetch('http://localhost:3000/roomreviews')
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [])
+  
+  // console.log(reviews);
   return (
     <div className="room-details-page py-10 text-center w-11/12 mx-auto">
       <hr />
@@ -56,6 +68,8 @@ const { _id, name, price, description, image, reviews } = detailsRoom
             <h1 className="text-4xl font-bold my-2">{name}</h1>
           <p className="text-xl font-bold">Price: ${price}</p>
             <p>{description}</p>
+           
+
            <ul className="list-disc list-inside space-y-1 mt-2">
         {detailsRoom.features.map((feature, index) => (
           <li key={index} className="text-gray-700">
@@ -119,10 +133,10 @@ const { _id, name, price, description, image, reviews } = detailsRoom
            
       <div className="modal-action flex justify-between">
               <button
-       onClick={confirmBooking}         className="bg-[#4ca98d] duration-500 hover:bg-[#438c76]  text-white p-3 rounded-md block">Confirm Booking</button>
+       onClick={confirmBooking} className="bg-[#4ca98d] duration-500 hover:bg-[#438c76]  text-white p-3 rounded-md block">Confirm Booking</button>
       <form method="dialog">
        
-        <button className="text-3xl  text-red-600 font-bold">x</button>
+        <button className="text-xl btn text-red-600 font-bold">Cancel</button>
       </form>
     </div>
             </>

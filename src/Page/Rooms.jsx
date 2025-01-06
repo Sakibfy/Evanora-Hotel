@@ -11,7 +11,7 @@ const Rooms = () => {
   useEffect(() => {
     // Fetch top-rated rooms from the backend
     axios
-      .get("https://evanora-hotel-server.vercel.app/rooms")
+      .get("http://localhost:3000/rooms")
       .then((response) => {
         setRooms(response.data);
       
