@@ -10,16 +10,19 @@ import Swal from "sweetalert2";
 const MyBookings = () => {
   const { user } = useContext(AuthContext);
   const [rooms, setRooms] = useState([]);
-  const [deleterooms, setDelete] = useState([]);
+  
   
   const axiosSecure = useCoustomAxios()
   useEffect(() => {
+    refetch()
     
-    axiosSecure.get(`/bookingroom?email=${user.email}`)
+
+  }, [user?.email]);
+
+  const refetch = () => {
+  axiosSecure.get(`/bookingroom?email=${user.email}`)
       .then(res => setRooms(res.data));
-
-  }, [user.email]);
-
+}
 
   const handleDelete = _id => {   
     Swal.fire({
@@ -45,10 +48,8 @@ const MyBookings = () => {
       text: "Your Booked Room has been deleted.",
       icon: "success"
           })
-          const remainingRoom = deleterooms.filter(roo => roo._id !== _id)
-          setDelete(remainingRoom);  
-          
         }
+        refetch()
     })
   }
 });  
@@ -64,6 +65,7 @@ const MyBookings = () => {
             bookdata={bookdata}
             user={user}
             handleDelete={handleDelete}
+            refetch={refetch}
           ></BookingsCard>)
         
         }

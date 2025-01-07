@@ -1,16 +1,16 @@
 
-import { useEffect, useState } from "react";
+
 import DatePicker from "react-datepicker";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useState } from "react";
 
 
 const RoomDetails = () => {
 const detailsRoom = useLoaderData();
   const nevigate = useNavigate()
-   const [reviews, setReviews] = useState([]);
   const [startDate, setStartDate] = useState(new Date())
 
 
@@ -25,7 +25,7 @@ const { _id, name, price, description, image,rating } = detailsRoom
       image, 
       startDate, 
       rating,
-      reviews
+      
     };
     console.log("Booking Confirmation Data:", bookingData);
      try {
@@ -44,14 +44,8 @@ const { _id, name, price, description, image,rating } = detailsRoom
       toast.error("Booking failed. Please try again!");
     }
   }
-  // review
-   useEffect(() => {
-        fetch('https://evanora-hotel-server.vercel.app/roomreviews')
-            .then(res => res.json())
-            .then(data => setReviews(data))
-    }, [])
   
-  // console.log(reviews);
+  
   return (
     <div className="room-details-page py-10 text-center w-11/12 mx-auto">
       <hr />
@@ -77,22 +71,7 @@ const { _id, name, price, description, image,rating } = detailsRoom
           </li>
         ))}
       </ul>
-           
-          <h2 className="text-2xl font-bold mt-8">Reviews</h2>
-          {reviews.length > 0 ? (
-            <ul className="reviews-list">
-              {reviews.map((review) => (
-                <li key={review._id} className="my-2">
-                  <p>
-                    <strong>{review.username}</strong>: {review.comment} -{" "}
-                    <span>{review.rating}/5</span>
-                  </p>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>No reviews available for this room.</p>
-          )}
+
 
           <button
             className="bg-[#4ca98d] duration-500 hover:bg-[#438c76]  text-white px-4 py-2 mt-4"

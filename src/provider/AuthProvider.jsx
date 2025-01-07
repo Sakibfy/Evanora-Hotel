@@ -16,10 +16,16 @@ const githubProvider = new GithubAuthProvider()
 const [loading, setLoading] = useState(true)
   
   
-  const updateUserProfile = (updateDate) => {
-    return updateProfile(auth.currentUser, updateDate)
-  };
+  // const updateUserProfile = (updateDate) => {
+  //   return updateProfile(auth.currentUser, updateDate)
+  // };
   
+  const updateUserProfile = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name, photoURL: photo
+    })
+  }
+      
   const loginWithGoogle = () => {
     setLoading(true);
     signInWithPopup(auth, googleProvider)

@@ -35,7 +35,7 @@ const Register = () => {
     try {
       //2. User Registration
       const result = await createUser(email, pass)
-      console.log(result)
+     
       await updateUserProfile(name, photo)
       setUser({ ...result.user, photoURL: photo, displayName: name })
       toast.success('Registration Successful')

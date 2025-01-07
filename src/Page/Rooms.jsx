@@ -41,7 +41,7 @@ const Rooms = () => {
               <h3 className="text-xl font-semibold">{room.name}</h3>
               <p className="text-gray-600 mb-4">{room.description}</p>
               <p className="text-blue-500 font-bold">
-                Reviews: {room.reviewCount || 0}
+               
               </p>
             </div>
               </div>
