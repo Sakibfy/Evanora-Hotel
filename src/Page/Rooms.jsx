@@ -29,7 +29,7 @@ const Rooms = () => {
         {rooms.map((room) => (
           <div
             key={room._id}
-            className="room-card bg-white shadow-md rounded-lg overflow-hidden"
+            className="room-card  shadow-md rounded-lg bg-stone-300"
           ><Link to={`/roomdetails/${room._id}`}>
             <div className="p-6 hover:scale-105 duration-200 ">
             <img
@@ -39,10 +39,8 @@ const Rooms = () => {
                 />
                   <div className="p-4">
               <h3 className="text-xl font-semibold">{room.name}</h3>
-              <p className="text-gray-600 mb-4">{room.description}</p>
-              <p className="text-blue-500 font-bold">
-               
-              </p>
+              <p className="text-black mb-4">{room.description}</p>
+             
             </div>
               </div>
               </Link>

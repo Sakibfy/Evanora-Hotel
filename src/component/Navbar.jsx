@@ -20,13 +20,13 @@ const Navbar = () => {
     <>
    
        <li className="">
-        <NavLink to="/rooms" className="font-semibold text-[18px] text-white hover:text-[#438c76]" onClick={closeMenu}>
+        <NavLink to="/rooms" className="font-semibold text-[18px] text-white hover:border-b-2 duration-500 hover:border-white" onClick={closeMenu}>
           Rooms
         </NavLink>
       </li>
       {user && (
         <li>
-          <NavLink to="/mybookings" className="font-semibold text-[16px] text-white hover:text-[#438c76]" onClick={closeMenu}>
+          <NavLink to="/mybookings" className="font-semibold text-[16px] text-white hover:border-b-2 duration-500 hover:border-white" onClick={closeMenu}>
             My Bookings
           </NavLink>
         </li>

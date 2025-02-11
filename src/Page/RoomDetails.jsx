@@ -47,7 +47,7 @@ const { _id, name, price, description, image,rating } = detailsRoom
   
   
   return (
-    <div className="room-details-page py-10 text-center w-11/12 mx-auto">
+    <div className="room-details-page py-10 text-center w-10/12 mx-auto">
       <hr />
         <>
         <div className="md:flex md:gap-20">
@@ -74,7 +74,7 @@ const { _id, name, price, description, image,rating } = detailsRoom
 
 
           <button
-            className="bg-[#4ca98d] duration-500 hover:bg-[#438c76]  text-white px-4 py-2 mt-4"
+            className=" duration-500 bg-[#715d54]  text-white px-4 py-2 mt-4 rounded-sm"
          onClick={()=>document.getElementById('my_modal_4').showModal()}
           >
             Book Now
@@ -84,18 +84,18 @@ const { _id, name, price, description, image,rating } = detailsRoom
         </>
       
 <dialog id="my_modal_4" className="modal">
-  <div className="modal-box w-11/12 max-w-1xl bg-gray-500 text-white h-4/4 shadow-lg text-left">
-  <h2 className="text-2xl text-center mb-3 font-bold">Booking Summary</h2>
+  <div className="modal-box w-11/12 max-w-1xl pl-7 overflow-hidden bg-[#715d54] text-white h-4/4 shadow-lg text-left">
+  <h2 className="text-2xl text-center mb-3 font-bold ">Booking Summary</h2>
     <>
             <img
             src={image}
               alt={name}
-            className=" mx-auto rounded-md  object-cover my-2"
+            className=" mx-auto rounded-md w-9/12 object-cover my-2"
           />
-        <p className=" text-2xl font-bold">Name: {name}</p>
-        <p className="font-semibold text-[20px]">Price: ${price}</p>
-        <p>Description: {description}</p>
-        <ul className="list-disc list-inside space-y-1 mt-2">
+        <p className=" text-2xl font-bold  md:ml-16"> {name}</p>
+        <p className="font-semibold text-[20px]  md:ml-16"> ${price}</p>
+        <p className="text-white md:ml-16"> {description}</p>
+        <ul className="list-disc  md:ml-16 list-inside space-y-1 mt-2">
         {detailsRoom.features.map((feature, index) => (
           <li key={index} className="text-white">
             {feature}
@@ -107,15 +107,15 @@ const { _id, name, price, description, image,rating } = detailsRoom
        selected={startDate}
       onChange={(date) => setStartDate(date)}
       dateFormat="MM/dd/yyyy"
-      className="mt-2 bg-slate-300 text-black p-1 rounded-lg"
+      className="mt-2 bg-slate-100  md:ml-16 text-black font-semibold p-1 rounded-sm "
       />
            
-      <div className="modal-action flex justify-between">
+      <div className="modal-action ">
               <button
-       onClick={confirmBooking} className="bg-[#4ca98d] duration-500 hover:bg-[#438c76]  text-white p-3 rounded-md block">Confirm Booking</button>
+       onClick={confirmBooking} className="btn text-black duration-500    p-3 rounded-md block">Confirm </button>
       <form method="dialog">
        
-        <button className="text-xl btn text-red-600 font-bold">Cancel</button>
+        <button className="text-[14px] btn text-red-600 font-bold">Cancel</button>
       </form>
     </div>
             </>
