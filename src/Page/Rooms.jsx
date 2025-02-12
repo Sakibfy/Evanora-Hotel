@@ -24,7 +24,8 @@ const Rooms = () => {
   return (
     <div className="featured-rooms py-10">
       <hr />
-      <h2 className="text-3xl font-bold text-center mb-8 mt-3">Available Rooms</h2>
+      <p className="text-center">Rooms</p>
+      <h2 className="text-3xl font-bold text-center mb-8 mt-3">Hand Picked Rooms</h2>
       <div className="w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {rooms.map((room) => (
           <div

@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { CiLogout } from "react-icons/ci";
-import navbarlogo from "../assets/hotel.png";
+import navbarlogo from "../assets/navbar.logo.png";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -82,7 +82,7 @@ const Navbar = () => {
             </div>
 
             {/* Logout Button */}
-            <button onClick={logOut} className="md:p-3 p-2  border-2 shadow-md border-white text-[12px] text-red-400 md:text-[16px] rounded flex items-center">
+            <button onClick={logOut} className="md:p-3 p-2  border-2 shadow-md border-white text-[12px] text-gray-700 font-semibold md:text-[16px] rounded flex items-center">
               Log-Out <CiLogout className="text-2xl md:ml-2 ml-0" />
             </button>
           </div>
