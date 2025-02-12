@@ -38,7 +38,7 @@ const Rooms = () => {
               className="w-full h-48 rounded-md object-cover"
                 />
                   <div className="p-4">
-              <h3 className="text-xl font-semibold">{room.name}</h3>
+              <h3 className="text-2xl text-black font-semibold">{room.name}</h3>
               <p className="text-black mb-4">{room.description}</p>
              
             </div>

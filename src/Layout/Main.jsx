@@ -8,7 +8,7 @@ const Main = () => {
   return (
     <div>
       {/* Navbar */}
-      <div className="bg-[#775242]">
+      <div className="">
         <Navbar></Navbar>
       </div>
       {/* Outlet */}

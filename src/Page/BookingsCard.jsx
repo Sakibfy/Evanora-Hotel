@@ -84,7 +84,7 @@ const formattedDate = new Date(startDate).toLocaleDateString("en-US", {
                 />
           </h2>
           <button
-          onClick={() => handleUpdatedDate(_id)}  className="px-5 mt-28 py-3 font-bold bg-[#4ca98d] duration-500 hover:bg-[#438c76] text-white mr-5 text-[16px] border rounded-md border-white outline-none ">update Date</button>
+          onClick={() => handleUpdatedDate(_id)}  className="px-5 mt-28 py-3 font-bold bg-[#775242] duration-500 hover:bg- text-white mr-5 text-[16px] border rounded-md border-white outline-none ">update Date</button>
   </div>
   <form method="dialog" className="modal-backdrop">
     <button>close</button>

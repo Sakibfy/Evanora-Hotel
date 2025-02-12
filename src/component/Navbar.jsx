@@ -2,11 +2,11 @@ import { useState, useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { CiLogout } from "react-icons/ci";
-import navbarlogoi from "../assets/hotel.png";
+import navbarlogo from "../assets/hotel.png";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false); 
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -20,13 +20,13 @@ const Navbar = () => {
     <>
    
        <li className="">
-        <NavLink to="/rooms" className="font-semibold text-[18px] text-white hover:border-b-2 duration-500 hover:border-white" onClick={closeMenu}>
+        <NavLink to="/rooms" className="font-semibold text-[18px] text-black hover:border-b-2 duration-500 hover:border-gray-600" onClick={closeMenu}>
           Rooms
         </NavLink>
       </li>
       {user && (
         <li>
-          <NavLink to="/mybookings" className="font-semibold text-[16px] text-white hover:border-b-2 duration-500 hover:border-white" onClick={closeMenu}>
+          <NavLink to="/mybookings" className="font-semibold text-[16px] text-black hover:border-b-2 duration-500 hover:border-gray-600" onClick={closeMenu}>
             My Bookings
           </NavLink>
         </li>
@@ -36,9 +36,9 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar backdrop-blur-3xl w-11/12 z-40 mx-auto relative">
+    <div className="navbar  w-11/12 z-40 mx-auto relative backdrop-blur-sm">
       {/* Left Side (Logo & Mobile Menu Button) */}
-      <div className="navbar-start">
+      <div className="navbar-start ">
         {/* Mobile Menu Button */}
         <button onClick={toggleMenu} className=" text-white mr-4 lg:hidden">
           {isMenuOpen ? (
@@ -61,7 +61,7 @@ const Navbar = () => {
 
         {/* Logo */}
         <Link to={"/"}>
-          <img className="w-40 cursor-pointer" src={navbarlogoi} alt="Hotel Logo" />
+          <img className="w-40 cursor-pointer" src={navbarlogo} alt="Hotel Logo" />
         </Link>
       </div>
 
