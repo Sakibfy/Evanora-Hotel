@@ -30,12 +30,12 @@ const Banner = () => {
         }}
         navigation={true}
         modules={[Pagination, Navigation]}
-        className="mySwiper sm:h-[740px] md:[740px] w-full"
+        className="mySwiper sm:h-[734px] md:[740px] w-full"
               >
         
            4<SwiperSlide className='relative inset-0  opacity-100'>
 
-               <img  src={img1} />
+               <img  src={img3} />
              
               
           </SwiperSlide>
@@ -44,7 +44,7 @@ const Banner = () => {
            
           </SwiperSlide>
           <SwiperSlide className='relative'>
-            <img className='w-screen' src={img3} />
+            <img className='w-screen' src={img1} />
          
           </SwiperSlide>
         
